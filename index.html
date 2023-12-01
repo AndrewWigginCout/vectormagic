@@ -1,0 +1,37 @@
+<style>
+table,tr,td {
+  border: 1px solid;
+}
+</style>
+<body></body>
+<script>
+document.title = "JS tutorial";
+var g = [
+["Mercury","0.39"],
+["Venus", "0.72"],
+["Earth","1"],
+["Mars","1.52"],
+["Jupiter","5.20"],
+]
+function generateTableHTML(g){
+  var l = g.length;
+  var w = g[0].length;
+  var table = '<table>'
+  for (let j=0;j<l;j++){
+    let tr="<tr>";
+      for (let i=0;i<w;i++){
+        tr+="<td>"+String(g[j][i])+"</td>";
+      }
+    tr+="</tr>";
+    table+=tr;
+  }
+  table+="</table>";
+  return table;
+}
+function generateTableElement(g){
+  var t = document.createElement('table');
+  t.innerHTML = generateTableHTML(g);
+  return t;
+}
+document.body.appendChild(generateTableElement(g));
+</script>
